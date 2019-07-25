@@ -1,0 +1,40 @@
+@mixin mb ($px: 20) {
+  margin-bottom: $px/37.5 * 1rem;
+}
+
+$TabBarH: 60px;
+.TabBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  max-width: 750px;
+  width: 100%;
+  height: $TabBarH;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -8px 10px 0 hsla(0,0%,43%,.1);
+  &>a {
+    display: inline-block;
+    flex: 1;
+    min-width: 50px;
+    height: 50px;
+    @for $i from 1 to 5 {
+      &:nth-child(#{$i}) {
+        background: url("./assets/images/tabBar-icons/#{$i}.png") no-repeat center center / contain;
+        &.active {
+          background-image: url("assets/images/tabBar-icons/#{$i}a.png");
+        }
+      }
+    }
+
+  }
+}
+
+.container {
+  width: 100%;
+  height: calc(100vh - #{$TabBarH});
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

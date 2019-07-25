@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/less/common.less';
-import './index.css';
 import 'antd/dist/antd.css';
+import './assets/less/normalize.less'
+import './assets/less/common.less';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

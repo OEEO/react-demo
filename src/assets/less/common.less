@@ -1,6 +1,109 @@
-.red {
-  color: red;
-  .green {
-    color: green;
+@import "./variable";
+
+
+
+body {
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal}
+ol,ul {list-style:none}
+caption,th {text-align:left}
+q:before,q:after {content:''}
+abbr,acronym { border:0}
+span{ vertical-align:middle;}
+form{ display:inline;}
+a{ text-decoration:none; }
+button, input, select, textarea { font-size:100%; }
+a:hover { text-decoration:underline; }
+input{ border:none 0; vertical-align:middle;}
+/*微软雅黑,Microsoft YaHei, 黑体, Helvetica,Tahoma,StSun,宋体,SimSun,sans-serif*/
+body, button, input, select, textarea { vertical-align:middle;}
+code, kbd, pre, samp, tt { font-family:"Courier New", Courier, monospace; }
+abbr[title], acronym[title] { border-bottom:1px dotted; cursor:help; }
+:focus { outline:0; }
+legend { color:#000; }
+hr { border:none; height:1px; *color:#fff;}
+img { -ms-interpolation-mode:bicubic; border:0; }
+
+html,body{
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+
+a:link{text-decoration:none; }
+a:visited{text-decoration:none;}
+a:active{text-decoration:none; }
+a:hover{text-decoration:none; }
+
+.r1-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.r2-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.r3-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.r4-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+
+.maxScreenWidth {
+  max-width: @maxScreenWidth;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: @maxScreenWidth) {
+  body {
+    max-width: @maxScreenWidth;
+    background-color: #f0f0f0;
+  }
+  .maxScreenWidth {
+    left: 50% !important;
+    margin-left: calc(-@maxScreenWidth / 2) !important;
   }
 }
+
+
