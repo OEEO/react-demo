@@ -3,10 +3,9 @@ import Home from './pages/Home'
 import Discover from './pages/Discover'
 import Orders from './pages/Orders'
 import UserCenter from './pages/UserCenter'
-import './App.scss'
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom'
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-export default class App extends React.Component{
+export default class RouterView extends React.Component{
   constructor (props) {
     super(props)
 
@@ -26,9 +25,14 @@ export default class App extends React.Component{
     this.setState({
       navCurIndex: key
     })
+    this.setState({
+      appCount: ++this.state.appCount
+    })
   }
 
   render () {
+
+    console.log('Route', this.props)
     let state = this.state
     let navCurIndex = state.navCurIndex
     let nav = state.nav
@@ -37,21 +41,31 @@ export default class App extends React.Component{
         <nav className="TabBar maxScreenWidth">
           {nav.map((navItem, key) => {
               return (
-                <Link to={navItem.to} className={`${navCurIndex === key ? "active" : null}`} key={key} onClick={this.navClick.bind(this, key)} />
+                <Link to={navItem.to}
+                      className={`${navCurIndex === key ? "active" : null}`}
+                      key={key}
+                      onClick={this.navClick.bind(this, key)} />
               )
             })}
         </nav>
 
         <div className="Route">
-          {nav.map((navItem, key) => {
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={() => <Redirect to="/Home"/> }
+            />
+
+            {nav.map((navItem, key) => {
               return (
                 <Route component={navItem.component}
-                       exact
                        path={navItem.to}
                        key={key}
                 />
               )
             })}
+          </Switch>
         </div>
       </Router>
     )
